@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OS Questions GitBook</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framer-motion/10.16.4/framer-motion.js"></script>
+    <style>
+        :root {
+            --bg-color: #0d1a26;
+            --text-color: #a3e635;
+            --highlight-color: #22c55e;
+            --secondary-color: #94a3b8;
+            --border-color: #1e293b;
+            --button-hover: #334155;
+        }
+        
+        body {
+            font-family: 'Consolas', 'Courier New', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--highlight-color);
+        }
+        
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .question-container {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .question-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--highlight-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .question-answer {
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .nav-button {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-button:hover {
+            background-color: var(--button-hover);
+            color: var(--highlight-color);
+        }
+        
+        .prev-button {
+            visibility: hidden;
+        }
+        
+        .question-index {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        code {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Consolas', 'Courier New', monospace;
+        }
+        
+        pre {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">OS GitBook</div>
+        <div id="question-counter">Question 1 of 5</div>
+    </header>
+    
+    <main>
+        <div class="question-container" id="question-container">
+            <div class="question-index">Question 1</div>
+            <h1 class="question-title">What is an Operating System?</h1>
+            <div class="question-answer">
+                <p>An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs.</p>
+                
+                <p>Key functions include:</p>
+                <ul>
+                    <li>Process management</li>
+                    <li>Memory management</li>
+                    <li>File system management</li>
+                    <li>Device management</li>
+                    <li>Security and protection</li>
+                </ul>
+                
+                <p>Examples of popular operating systems include:</p>
+                <ul>
+                    <li>Microsoft Windows</li>
+                    <li>macOS</li>
+                    <li>Linux</li>
+                    <li>Android</li>
+                    <li>iOS</li>
+                </ul>
+                
+                <p>The OS serves as an intermediary between users and the computer hardware, providing an environment in which users can execute programs conveniently and efficiently.</p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-button prev-button" id="prev-button">← Previous Question</button>
+            <button class="nav-button next-button" id="next-button">Next Question →</button>
+        </div>
+    </main>
+    
+    <footer>
+        Operating Systems GitBook Template © 2025
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                id: 1,
+                title: "What is an Operating System?",
+                content: `<p>An operating system (OS) is system software that manages computer hardware, software resources, and provides common services for computer programs.</p>
+                
+                <p>Key functions include:</p>
+                <ul>
+                    <li>Process management</li>
+                    <li>Memory management</li>
+                    <li>File system management</li>
+                    <li>Device management</li>
+                    <li>Security and protection</li>
+                </ul>
+                
+                <p>Examples of popular operating systems include:</p>
+                <ul>
+                    <li>Microsoft Windows</li>
+                    <li>macOS</li>
+                    <li>Linux</li>
+                    <li>Android</li>
+                    <li>iOS</li>
+                </ul>
+                
+                <p>The OS serves as an intermediary between users and the computer hardware, providing an environment in which users can execute programs conveniently and efficiently.</p>`
+            },
+            {
+                id: 2,
+                title: "What is Process Management?",
+                content: `<p>Process management is one of the core responsibilities of an operating system. It involves controlling the creation, deletion, and execution of processes.</p>
+                
+                <p>Key aspects of process management include:</p>
+                <ul>
+                    <li><strong>Process Creation and Termination:</strong> Allocating resources for new processes and cleaning up after termination</li>
+                    <li><strong>Process Scheduling:</strong> Determining which process runs when</li>
+                    <li><strong>Process Synchronization:</strong> Managing concurrent processes and preventing race conditions</li>
+                    <li><strong>Interprocess Communication:</strong> Allowing processes to exchange information</li>
+                    <li><strong>Deadlock Handling:</strong> Preventing or resolving situations where processes wait indefinitely</li>
+                </ul>
+                
+                <p>The Process Control Block (PCB) is a data structure maintained by the OS that contains information about each process, including its state, program counter, CPU registers, and memory management information.</p>`
+            },
+            {
+                id: 3,
+                title: "Explain Memory Management in Operating Systems",
+                content: `<p>Memory management is the functionality of an operating system that handles or manages primary memory (RAM) and moves processes back and forth between main memory and disk during execution.</p>
+                
+                <p>Key memory management concepts include:</p>
+                <ul>
+                    <li><strong>Virtual Memory:</strong> Creating an illusion of larger memory than physically available</li>
+                    <li><strong>Paging:</strong> Dividing memory into fixed-size blocks called pages</li>
+                    <li><strong>Segmentation:</strong> Dividing memory into segments of varying sizes</li>
+                    <li><strong>Memory Allocation:</strong> Techniques like First-Fit, Best-Fit, Worst-Fit</li>
+                    <li><strong>Swapping:</strong> Moving processes between main memory and secondary storage</li>
+                </ul>
+                
+                <p>Memory management prevents one process from interfering with another's memory space and optimizes memory usage to accommodate as many processes as possible.</p>
+                
+                <p>Modern operating systems typically use a combination of these techniques to manage memory efficiently.</p>`
+            },
+            {
+                id: 4,
+                title: "What is a File System?",
+                content: `<p>A file system is the method and data structure that an operating system uses to control how data is stored and retrieved. It organizes data into files and directories and tracks where these items are located on disk.</p>
+                
+                <p>Key components of file systems include:</p>
+                <ul>
+                    <li><strong>Files:</strong> Named collections of related data</li>
+                    <li><strong>Directories/Folders:</strong> Containers for files and other directories</li>
+                    <li><strong>Metadata:</strong> Information about files such as permissions, creation date, size</li>
+                    <li><strong>Path:</strong> Location of a file in the directory hierarchy</li>
+                </ul>
+                
+                <p>Common file systems include:</p>
+                <ul>
+                    <li><strong>NTFS:</strong> Used by Windows</li>
+                    <li><strong>ext4:</strong> Common in Linux distributions</li>
+                    <li><strong>APFS:</strong> Apple's file system for macOS, iOS, etc.</li>
+                    <li><strong>FAT32:</strong> Older but widely compatible file system</li>
+                    <li><strong>exFAT:</strong> Extended FAT file system for flash drives</li>
+                </ul>
+                
+                <p>File systems provide abstraction from the physical storage device and implement features like access control, encryption, compression, and journaling.</p>`
+            },
+            {
+                id: 5,
+                title: "What is CPU Scheduling?",
+                content: `<p>CPU scheduling is the process of determining which process in the ready queue gets access to the CPU next. It is a fundamental function of the operating system aimed at maximizing CPU utilization and throughput while minimizing response time and waiting time.</p>
+                
+                <p>Common CPU scheduling algorithms include:</p>
+                
+                <ul>
+                    <li><strong>First-Come, First-Served (FCFS):</strong> Processes are executed in the order they arrive</li>
+                    <li><strong>Shortest Job First (SJF):</strong> Process with shortest execution time is selected first</li>
+                    <li><strong>Priority Scheduling:</strong> Process with highest priority is selected first</li>
+                    <li><strong>Round Robin (RR):</strong> Each process gets a small unit of CPU time (time quantum), then is preempted</li>
+                    <li><strong>Multilevel Queue:</strong> Ready queue is divided into separate queues based on process properties</li>
+                </ul>
+                
+                <p>Scheduling criteria that algorithms aim to optimize include:</p>
+                
+                <ul>
+                    <li>CPU utilization (keeping the CPU as busy as possible)</li>
+                    <li>Throughput (number of processes completed per time unit)</li>
+                    <li>Turnaround time (time from submission to completion)</li>
+                    <li>Waiting time (time spent waiting in ready queue)</li>
+                    <li>Response time (time from submission to first response)</li>
+                </ul>
+                
+                <p>The choice of scheduling algorithm depends on the system's requirements and goals.</p>`
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        const questionContainer = document.getElementById('question-container');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const questionCounter = document.getElementById('question-counter');
+        function displayQuestion() {
+            const question = questions[currentQuestionIndex];
+            const newContent = document.createElement('div');
+            newContent.className = 'question-container';
+            newContent.style.opacity = '0';
+            newContent.style.transform = 'translateY(20px)';
+            
+            newContent.innerHTML = `
+                <div class="question-index">Question ${question.id}</div>
+                <h1 class="question-title">${question.title}</h1>
+                <div class="question-answer">
+                    ${question.content}
+                </div>
+            `;
+            
+            questionContainer.parentNode.replaceChild(newContent, questionContainer);
+            setTimeout(() => {
+                newContent.style.opacity = '1';
+                newContent.style.transform = 'translateY(0)';
+                newContent.style.transition = 'all 0.5s ease';
+            }, 10);
+            questionCounter.textContent = `Question ${question.id} of ${questions.length}`;
+            prevButton.style.visibility = currentQuestionIndex === 0 ? 'hidden' : 'visible';
+            nextButton.style.visibility = currentQuestionIndex === questions.length - 1 ? 'hidden' : 'visible';
+            return newContent;
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                questionContainer = displayQuestion();
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                questionContainer = displayQuestion();
+            }
+        });
+
+        questionContainer = displayQuestion();
+    </script>
+</body>
+</html>
